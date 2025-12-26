@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glyph (MVP)</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Glyph</h1>
+    </header>
+    <main>
+      <section id="input-module">
+        <h3>Input Module</h3>
+        <textarea id="input-text" placeholder="Type anything..."></textarea>
+      </section>
+      <section id="pipeline"></section>
+      <button id="add-module-btn" class="primary">+ Add module</button>
+      <div id="max-notice"><small>Maximum modules reached</small></div>
+      <section id="output-module">
+        <h3>Output Module</h3>
+        <textarea id="output-text" readonly></textarea>
+        <button id="copy-output-btn">Copy to Clipboard</button>
+      </section>
+    </main>
+    <footer>
+      <small>
+        Glyph * made by
+        <a
+          href="http://github.com/OrianaFawkes/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ori
+        </a>
+        *
+        <a
+          href="http://github.com/OrianaFawkes/glyph"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+      </small>
+    </footer>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
