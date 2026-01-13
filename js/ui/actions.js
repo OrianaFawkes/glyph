@@ -2,6 +2,7 @@ import { createEmptyModule } from "../modules/empty.js";
 import { createCaseModule } from "../modules/case.js";
 import { createReplaceModule } from "../modules/replace.js";
 import { createEncodeModule } from "../modules/encode.js";
+import { createJsonModule } from "../modules/json.js";
 
 export function replaceEmptyModule(
   oldModule,
@@ -29,6 +30,10 @@ export function replaceEmptyModule(
 
     case "encode":
       newModule = createEncodeModule();
+      break;
+
+    case "json":
+      newModule = createJsonModule();
       break;
 
     default:

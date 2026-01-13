@@ -17,6 +17,7 @@ export function renderEmptyModule(
     { value: "case", label: "Case" },
     { value: "replace", label: "Replace" },
     { value: "encode", label: "Encode / Decode" },
+    { value: "json", label: "JSON" },
   ];
   options.forEach((opt) => {
     const btn = document.createElement("button");
@@ -137,4 +138,65 @@ export function renderEncodeModule(module, container, updateOutput) {
   });
 
   container.appendChild(group);
+}
+
+export function renderJsonModule(module, container, updateOutput) {
+  const indentGroup = document.createElement("div");
+  indentGroup.className = "segmented";
+
+  const indentOptions = [
+    { value: 2, label: "2 spaces" },
+    { value: 4, label: "4 spaces" },
+    { value: 8, label: "8 spaces" },
+  ];
+
+  indentOptions.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt.label;
+    btn.classList.toggle("active", module.settings.indent === opt.value);
+
+    btn.addEventListener("click", () => {
+      module.settings.indent = opt.value;
+      updateOutput();
+
+      [...indentGroup.children].forEach((b) =>
+        b.classList.remove("active")
+      );
+      btn.classList.add("active");
+    });
+
+    indentGroup.appendChild(btn);
+  });
+
+  const sortGroup = document.createElement("div");
+  sortGroup.className = "segmented";
+
+  const sortOptions = [
+    { value: false, label: "Original order" },
+    { value: true, label: "Sort keys" },
+  ];
+
+  sortOptions.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt.label;
+    btn.classList.toggle(
+      "active",
+      module.settings.sortKeys === opt.value
+    );
+
+    btn.addEventListener("click", () => {
+      module.settings.sortKeys = opt.value;
+      updateOutput();
+
+      [...sortGroup.children].forEach((b) =>
+        b.classList.remove("active")
+      );
+      btn.classList.add("active");
+    });
+
+    sortGroup.appendChild(btn);
+  });
+
+  container.appendChild(indentGroup);
+  container.appendChild(sortGroup);
 }

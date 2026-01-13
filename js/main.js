@@ -70,6 +70,7 @@ function getModuleRenderer(type) {
     case: renderer.renderCaseModule,
     replace: renderer.renderReplaceModule,
     encode: renderer.renderEncodeModule,
+    json: renderer.renderJsonModule,
   }[type];
 }
 
